@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "post-api-collection",
+		"name": "Post API Collection",
+		"description": "Complete CRUD operations for Post API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				},
+				"description": "Retrieve all posts with their category information"
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Create New Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Sample Post Title\",\n    \"body\": \"This is the content of the post. It can be a long text.\",\n    \"date\": \"2025-08-23\",\n    \"category_id\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/posts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				},
+				"description": "Create a new post. All fields are optional except title."
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Post by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				},
+				"description": "Retrieve a specific post by its ID with category information"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Update Post",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Post Title\",\n    \"body\": \"This is the updated content of the post.\",\n    \"date\": \"2025-08-24\",\n    \"category_id\": 2\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/posts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				},
+				"description": "Update an existing post by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				},
+				"description": "Delete a post by its ID"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Posts by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts/category/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"category",
+						"1"
+					]
+				},
+				"description": "Retrieve all posts from a specific category"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Posts by Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts/date/2025-08-23",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"date",
+						"2025-08-23"
+					]
+				},
+				"description": "Retrieve all posts from a specific date"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Search Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/posts/search/sample",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"search",
+						"sample"
+					]
+				},
+				"description": "Search posts by keyword in title or body"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
+
