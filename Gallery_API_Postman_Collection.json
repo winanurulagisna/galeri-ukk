@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "gallery-api-collection",
+		"name": "Gallery API Collection",
+		"description": "Complete CRUD operations for Gallery API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Get All Galleries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries"
+					]
+				},
+				"description": "Retrieve all galleries with their post information"
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Create New Gallery",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Sample Gallery Image\",\n    \"caption\": \"This is a sample image caption\",\n    \"file_path\": \"/storage/galleries/sample-image.jpg\",\n    \"post_id\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/galleries",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries"
+					]
+				},
+				"description": "Create a new gallery entry. All fields are optional except title and file_path."
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Upload Gallery File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Uploaded Image",
+							"type": "text"
+						},
+						{
+							"key": "caption",
+							"value": "This image was uploaded via API",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "post_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/galleries/upload",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"upload"
+					]
+				},
+				"description": "Upload a file and create a gallery entry. Supports jpeg, png, jpg, gif, webp up to 2MB."
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Gallery by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"1"
+					]
+				},
+				"description": "Retrieve a specific gallery by its ID with post information"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Update Gallery",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Gallery Title\",\n    \"caption\": \"Updated caption text\",\n    \"file_path\": \"/storage/galleries/updated-image.jpg\",\n    \"post_id\": 2\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/galleries/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"1"
+					]
+				},
+				"description": "Update an existing gallery by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete Gallery",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"1"
+					]
+				},
+				"description": "Delete a gallery by its ID"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Galleries by Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries/post/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"post",
+						"1"
+					]
+				},
+				"description": "Retrieve all galleries from a specific post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Get Standalone Galleries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries/standalone",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"standalone"
+					]
+				},
+				"description": "Retrieve all galleries that are not associated with any post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Search Galleries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/galleries/search/sample",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"search",
+						"sample"
+					]
+				},
+				"description": "Search galleries by keyword in title or caption"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
